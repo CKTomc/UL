@@ -65,9 +65,10 @@ def kmedoids(k):
             else:
                 nochange=True
                   
-    """saving clusters"""     
+        
     clusters={}
-    for m in medoids.keys():
-        cluster=[data[o] for o in medoids[m]]
+    for m, objects in medoids:
+        cluster=[data[o] for o in objects]
         clusters[data[m[0]]]=cluster   
-    save(clusters,path+'clusters.pickle')
+    
+    return clusters
